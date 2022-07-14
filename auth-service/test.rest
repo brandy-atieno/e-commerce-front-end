@@ -1,0 +1,21 @@
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+ 
+"user_name":"peterjohn", 
+"first_name":"peter", 
+"last_name":"john", 
+"email":"johnp@gmail.com", 
+"password":"poiuytrewq#",  
+"isAdmin":1
+}
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email":"vinton@gmail.com",
+    "password":"zxcvbnm098765"
+}
+###
