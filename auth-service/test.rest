@@ -19,3 +19,13 @@ Content-Type: application/json
     "password":"zxcvbnm098765"
 }
 ###
+POST http://localhost:5000/updateUserProfile
+Content-Type: application/json
+
+{
+ 
+"user_name":"peter",  
+"email":"jp@gmail.com", 
+"password":"poiuywq#",  
+}
+###

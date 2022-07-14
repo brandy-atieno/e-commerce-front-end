@@ -5,7 +5,10 @@ dotenv.config();
 
 const { router } = require('./routes/authentication')
 
-const bodyParser = require('body-parser')
+const { userProfileUpdate } = require('./routes/userProfileUpdate')
+
+const bodyParser = require('body-parser');
+const { request } = require('express');
 
 app.use(bodyParser.json());
 
@@ -14,6 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const port = process.env.PORT;
 
 app.use('/', router)
+
+app.use('/', userProfileUpdate)
 
 app.use((req, res, next) => {
     const error = new Error("Error");
