@@ -3,20 +3,21 @@ Content-Type: application/json
 
 {
  
-"user_name":"nnnnhgt", 
-"first_name":"hfybh", 
-"last_name":"hnfgy", 
-"email":"ujygy7yryuh56n@gmail.com", 
-"password":"ygu5r675q#",  
-"isAdmin":0
+"user_name":"KgVintonJr",
+"first_name":"Viton",
+"last_name":"Junour",
+"email":"vintongakajuniour@gmail.com",
+"password":"qwerty1234",
+"isAdmin":0 
 }
+
 ###
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email":"ujygtgyryuh56n@gmail.com",
-    "password":"ygu5r6lll75q#"
+    "email":"vintonmogakajuniour@gmail.com",
+    "password":"qwerty1234"
 }
 ###
 POST http://localhost:5000/updateUserProfile
@@ -28,4 +29,6 @@ Content-Type: application/json
 "email":"jp@gmail.com", 
 "password":"poiuywq#",  
 }
+###
+GET http://localhost:5000/users
 ###
