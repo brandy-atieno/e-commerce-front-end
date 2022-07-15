@@ -3,20 +3,20 @@ Content-Type: application/json
 
 {
  
-"user_name":"peterjohn", 
-"first_name":"peter", 
-"last_name":"john", 
-"email":"johnp@gmail.com", 
-"password":"poiuytrewq#",  
-"isAdmin":1
+"user_name":"nnnnhgt", 
+"first_name":"hfybh", 
+"last_name":"hnfgy", 
+"email":"ujygy7yryuh56n@gmail.com", 
+"password":"ygu5r675q#",  
+"isAdmin":0
 }
 ###
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email":"vinton@gmail.com",
-    "password":"zxcvbnm098765"
+    "email":"ujygtgyryuh56n@gmail.com",
+    "password":"ygu5r6lll75q#"
 }
 ###
 POST http://localhost:5000/updateUserProfile
