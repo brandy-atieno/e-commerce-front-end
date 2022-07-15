@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
+const {userAuth}=require('../auth-service/middlewares/authMiddleware')
 
-const { router } = require('./routes/authentication')
+const  router  = require('../auth-service/routes/authentication')
 
-// const { userProfileUpdate } = require('./routes/userProfileUpdate')
+ const { userProfileUpdate } = require('../auth-service/routes/userProfileUpdate')
 
 const bodyParser = require('body-parser');
 const { request } = require('express');
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const port = process.env.PORT || 5000;
 
 app.use('/', router)
+app.use('/user',userProfileUpdate)
 
 
 

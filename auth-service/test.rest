@@ -3,10 +3,10 @@ Content-Type: application/json
 
 {
  
-"user_name":"nnnnhgt", 
+"user_name":"nyhgvhgt", 
 "first_name":"hfybh", 
 "last_name":"hnfgy", 
-"email":"ujygy7yryuh56n@gmail.com", 
+"email":"uuyghvbhjyuh56n@gmail.com", 
 "password":"ygu5r675q#",  
 "isAdmin":0
 }
@@ -19,7 +19,7 @@ Content-Type: application/json
     "password":"ygu5r6lll75q#"
 }
 ###
-POST http://localhost:5000/updateUserProfile
+PUT http://localhost:5000/user/updateUserProfile
 Content-Type: application/json
 
 {
