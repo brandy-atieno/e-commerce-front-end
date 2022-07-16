@@ -18,3 +18,8 @@ description varchar(255)
 
 
 )
+create table orders(
+order_id int identity(1,1) Primary Key,
+product_id int FOREIGN KEY REFERENCES products(product_id),
+user_id int FOREIGN KEY REFERENCES users(user_id),
+quantity int)
