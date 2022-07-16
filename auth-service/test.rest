@@ -3,12 +3,12 @@ Content-Type: application/json
 
 {
  
-"user_name":"KgVintonJr",
-"first_name":"Viton",
-"last_name":"Junour",
-"email":"vintongakajuniour@gmail.com",
-"password":"qwerty1234",
-"isAdmin":0 
+"user_name":"nyhgvhgt", 
+"first_name":"hfybh", 
+"last_name":"hnfgy", 
+"email":"uuyghvbhjyuh56n@gmail.com", 
+"password":"ygu5r675q#",  
+"isAdmin":0
 }
 
 ###

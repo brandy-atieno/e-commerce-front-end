@@ -19,7 +19,7 @@ const port = process.env.PORT;
 
 app.use('/', router)
 
-app.use('/', productRouter)
+app.use('/product', productRouter)
 
 app.use((err, req, res, next) => {
     res.json({
