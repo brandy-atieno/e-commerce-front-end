@@ -21,6 +21,7 @@ app.use('/', router)
 
 app.use('/product', productRouter)
 
+
 app.use((err, req, res, next) => {
     res.json({
         status: err.status,

@@ -10,4 +10,6 @@ productRouter.get('/product/:product_name', getProduct)
 
 productRouter.get('/viewProduct', viewProducts)
 
+productRouter.delete('/product/:product_name', deleteProduct)
+
 module.exports = { productRouter };

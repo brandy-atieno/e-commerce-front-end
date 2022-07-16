@@ -50,16 +50,17 @@ module.exports = {
         }
     },
     getProduct: async(req, res) => {
+        let { product_name } = req.params
 
         try {
             let pool = await poolPromise()
-            pool.query(`select from products where product_name='${product_name}'`).then(results => {
+            let result = pool.query(`select * from products where product_name='${product_name}'`).then(results => {
                 console.log(results.recordset)
                 res.json({
                     status: 200,
                     success: true,
-                    message: "The product is:",
-                    results: product
+                    message: "The product is: ",
+                    results: results.recordset
                 })
             })
         } catch (err) {
@@ -87,17 +88,27 @@ module.exports = {
     },
     deleteProduct: async(req, res) => {
 
+        let { product_name } = req.params
+
         try {
             let pool = await poolPromise()
-            pool.query(`select from products where product_name='${product_name}'`).then(results => {
-                console.log(results.recordset)
-                res.json({
-                    status: 200,
-                    success: true,
-                    message: "The product is Deleted",
-                    results: product
-                })
-            })
+                /*pool.query(`select * from products where product_name='${product_name}'`).then(results => {
+                    console.log(results.recordset)
+                    res.json({
+                        status: 200,
+                        success: true,
+                        message: "The product is Deleted",
+                        results: results.recordset
+                    })
+                })*/
+
+            /* pool.request()
+
+                 .emit('product_name', product_name)
+
+
+                 .emit('StatementType', 'Delete')
+                 .execute('dbo.product_queries')*/
         } catch (err) {
             console.log(err.message)
 
