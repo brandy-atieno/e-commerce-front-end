@@ -19,12 +19,15 @@ Content-Type: application/json
     "password":"ygu5r675q#"
 }
 ###
-PUT  http://localhost:5000/user/1071
+PUT  http://localhost:5000/user/7
 Content-Type: application/json
 
 {
-"user_id":1071,  
-"email":"uihp@gmail.com"
+
+"email":"uihp@gmail.com",
+"user_id":7,
+"isAdmin":0
+
   
 }
 ###

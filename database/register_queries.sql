@@ -37,9 +37,7 @@ AS
         BEGIN
             UPDATE users
             SET    user_name=@user_name,
-					first_name = @first_name,
-                   last_name = @last_name,
-                   email=@email,
+					         email=@email,
 				   password=@password,				   
 				   isAdmin=@isAdmin
 
