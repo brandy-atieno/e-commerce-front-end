@@ -24,11 +24,11 @@ module.exports = {
 
         .then(results => {
             if (results.rowsAffected) {
-                const token =jwt.sign({email:email},process.env.JWTKEY,{
+                const token =jwt.sign({email:email,user_name:user_name},process.env.JWTKEY,{
                     expiresIn:"24h",})
               return  res.json({
                 status:200,
-                user:{email,password},
+                user:{email,user_name},
                 message:" Successful Register",token
                 })                
             }})}
@@ -53,11 +53,11 @@ module.exports = {
                 let pass =  await bcrypt.compare(password,user.password)
                 
                    if ( pass) {
-                        const token = jwt.sign({ email: email }, process.env.JWTKEY, {
+                        const token = jwt.sign({ email: email ,password:password}, process.env.JWTKEY, {
                             expiresIn: "24h",
                           });
                         return res.status(200).json({
-                            user:email,
+                            user:email,password,
                             success: true,
                             message: "Logged in successfully",token,
                         
