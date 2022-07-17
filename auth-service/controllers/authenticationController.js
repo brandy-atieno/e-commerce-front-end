@@ -41,6 +41,7 @@ module.exports = {
                 success: false,
                 message: error.message
             })
+
         }
     },
 
@@ -84,13 +85,6 @@ module.exports = {
                 message: error.message,
             });
         }
-
-
-
-
-
-
-
     }
 
 }

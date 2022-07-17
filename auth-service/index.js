@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
+
 const userRouter = require('../auth-service/routes/authentication')
 
 const updateRouter = require('../auth-service/routes/userProfileUpdate')
