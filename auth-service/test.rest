@@ -16,8 +16,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email":"vintonmogakajuniour@gmail.com",
-    "password":"qwerty1234"
+   "email":"retdwsd46n@gmail.com",
+    "password":"ygu5r675q#"
 }
 ###
 PUT http://localhost:5000/user/updateUserProfile
