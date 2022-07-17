@@ -1,0 +1,28 @@
+POST http://localhost:5000/product/createProduct
+Content-Type: application/json
+
+{
+    "product_name":"Car",
+    "price":12000000.00,
+    "description":"Mercedes"
+
+}  
+### 
+PUT  http://localhost:5000/product/updateProduct
+Content-Type: application/json
+
+{
+    "product_name":"Car",
+    "price":15000.00,
+    "description":"Second-Hand"
+
+}
+###
+GET http://localhost:5000/product/viewProduct
+
+###
+GET http://localhost:5000/product/product/Car
+
+###
+
+//DELETE  http://localhost:5000/product/product/Car
