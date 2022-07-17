@@ -3,10 +3,10 @@ Content-Type: application/json
 
 {
  
-"user_name":"nyhgvhgt", 
-"first_name":"hfybh", 
-"last_name":"hnfgy", 
-"email":"uuyghvbhjyuh56n@gmail.com", 
+ "user_name":"njll", 
+"first_name":"kim", 
+"last_name":"baohg", 
+"email":"nhbsaqwmngfuy@gmail.com", 
 "password":"ygu5r675q#",  
 "isAdmin":0
 }
@@ -20,14 +20,16 @@ Content-Type: application/json
     "password":"ygu5r675q#"
 }
 ###
-PUT http://localhost:5000/user/updateUserProfile
+PUT  http://localhost:5000/user/7
 Content-Type: application/json
 
 {
- 
-"user_name":"peter",  
-"email":"jp@gmail.com", 
-"password":"poiuywq#",  
+
+"email":"uihp@gmail.com",
+"user_id":7,
+"isAdmin":0
+
+  
 }
 ###
 GET http://localhost:5000/users

@@ -1,5 +1,5 @@
 create table users(
-user_id int PRIMARY KEY,
+user_id int  IDENTITY (1,1)PRIMARY KEY,
 user_name varchar(255),
 first_name varchar(255),
 last_name varchar(255),

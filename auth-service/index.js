@@ -3,9 +3,12 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
-const userRouter = require('../auth-service/routes/authentication')
 
-const updateRouter = require('../auth-service/routes/userProfileUpdate')
+const  userRouter  = require('../auth-service/routes/authentication')
+
+ const updateRouter = require('../auth-service/routes/userProfileUpdate')
+
+
 
 const bodyParser = require('body-parser');
 const { request } = require('express');
@@ -17,7 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const port = process.env.PORT || 5000;
 
 app.use('/', userRouter)
-app.use('/user', updateRouter)
+
+app.use('/user',updateRouter)
 
 
 
