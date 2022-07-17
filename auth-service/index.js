@@ -18,7 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const port = process.env.PORT || 5000;
 
 app.use('/', router)
-
 app.use('/user', userProfileUpdate)
 
 
