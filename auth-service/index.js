@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const port = process.env.PORT || 5000;
 
 app.use('/', userRouter)
-app.use('/user',updateRouter)
+app.use('/',updateRouter)
 
 
 

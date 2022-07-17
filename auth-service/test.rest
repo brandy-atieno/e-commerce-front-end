@@ -3,13 +3,14 @@ Content-Type: application/json
 
 {
  
- "user_name":"njll", 
+ "user_name":"brandy", 
 "first_name":"kim", 
 "last_name":"baohg", 
-"email":"nhbsaqwmngfuy@gmail.com", 
+"email":"brandy6754gfuy@gmail.com", 
 "password":"ygu5r675q#",  
 "isAdmin":0
 }
+
 ###
 POST http://localhost:5000/login
 Content-Type: application/json
@@ -19,15 +20,16 @@ Content-Type: application/json
     "password":"ygu5r675q#"
 }
 ###
-PUT  http://localhost:5000/user/7
+PUT  http://localhost:5000/updateProfile
 Content-Type: application/json
 
 {
-
-"email":"uihp@gmail.com",
-"user_id":7,
-"isAdmin":0
-
+   "userID":1025,  
+ "user_name":"odhiambo", 
+   "email":"mariogy675vghh@fj.com",
+   "password":"ujng567"
+   
+  
   
 }
 ###

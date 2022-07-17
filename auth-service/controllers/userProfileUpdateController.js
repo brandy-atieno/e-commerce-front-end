@@ -1,26 +1,34 @@
 const { user } = require('../config/config');
 const mssql = require('mssql')
+const bcrypt=require("bcryptjs")
 const poolPromise = require('../config/poolPromise')
 
 module.exports = {
     updateUserProfile: async(req, res) => {
-        let { user_name, email,password,isAdmin } = req.body
-        
-        let pool = await poolPromise()
-        pool.request()
-        .input('user_name',user_name)
-            .input('email', email)
-            .input('password',password)
-            .input('isAmin',isAdmin)
-            .input('StatementType', 'Update')
-            .execute('dbo.USERUpdate')
+        let { userID,user_name, email, password,} = req.body
+        try {
 
-        .then(results => {
-            if (results.rowsAffected && req.body.userId === req.params.id ) {
-                res.send("Updated!")
-                console.log("Updated!")
-            }
-        })
+            let pool = await poolPromise()
+            const bcryptPassword = await bcrypt.hash(password, 10);
+            pool.request()
+            .input('userID', userID)
+            .input('user_name', user_name)
+                .input('email', email)
+                .input('password', bcryptPassword)
+                
+                
+                .execute('dbo.UserUpdate')
 
+            .then(results => {
+                
+                if (results.rowsAffected) {
+                    res.send("Profile successfuly updated!")
+                    console.log("Profile  successfuly updated!!")
+                }
+            })
+        } catch (err) {
+            console.log(err.message)
+
+        }
     }
 }
