@@ -63,7 +63,7 @@ BEGIN
 
 
     DELETE STORED PROCEDURE
-    
+
     CREATE  OR ALTER PROCEDURE USERDelete(@user_id int)
 AS
 BEGIN
@@ -72,3 +72,25 @@ BEGIN
 	       WHERE user_id = @user_id
 	
     END
+
+
+    EMAIL VERIFICATION
+    CREATE OR ALTER PROCEDURE CHECK_EMAIL_EXISTS
+(@email varchar(255)
+)
+AS
+BEGIN
+SELECT * FROM users
+WHERE email=@email
+END
+
+
+USERNAME VERIFICATION
+CREATE OR ALTER PROCEDURE CHECK_USERNAME_EXISTS
+(@user_name varchar(255)
+)
+AS
+BEGIN
+SELECT * FROM users
+WHERE user_name=@user_name
+END

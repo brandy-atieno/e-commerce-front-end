@@ -6,7 +6,7 @@ Content-Type: application/json
  "user_name":"brandy", 
 "first_name":"kim", 
 "last_name":"baohg", 
-"email":"brandy6754gfuy@gmail.com", 
+"email":"moiuytfdesy6754gfuy@gmail.com", 
 "password":"ygu5r675q#",  
 "isAdmin":0
 }
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
     "email":"retdwsd46n@gmail.com",
-    "password":"ygu5r675q#"
+    "password":"yu5r675q#"
 }
 ###
 PUT  http://localhost:5000/updateProfile

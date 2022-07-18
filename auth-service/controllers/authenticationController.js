@@ -7,10 +7,29 @@ const poolPromise = require('../config/poolPromise')
 module.exports = {
      register: async(req, res) => {
         let { user_name, first_name, last_name, email, password, isAdmin } = req.body
+
        try{
         let pool = await poolPromise()
         const bcryptPassword = await bcrypt.hash(password, 10);
-        
+        const verifyEmail= await pool.request()
+           .input('email',email)
+           .execute('CHECK_EMAIL_EXISTS');
+           if(verifyEmail.recordset.length>0){
+            return res.status(401).json({
+                status:401,
+                message:"Email exists create another" 
+            })
+           }
+           const verifyUsername= await pool.request()
+           .input('user_name',user_name)
+           .execute('CHECK_USERNAME_EXISTS');
+           if(verifyUsername.recordset.length>0){
+            return res.status(401).json({
+                status:401,
+                message:"Username exists create another" 
+            })
+           }
+
         pool.request()
 
         .input('user_name', user_name)
@@ -52,7 +71,7 @@ module.exports = {
                 let user = selectQuery.recordset[0]
                 let pass =  await bcrypt.compare(password,user.password)
                 
-                   if ( pass) {
+                   if ( pass ) {
                         const token = jwt.sign({ email: email ,password:password}, process.env.JWTKEY, {
                             expiresIn: "24h",
                           });
