@@ -8,12 +8,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mssql": "^8.1.2"
-  },
-  "devDependencies": {
+    "mssql": "^8.1.2",
     "nodemon": "^2.0.19"
   }
 }

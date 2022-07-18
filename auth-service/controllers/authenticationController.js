@@ -58,7 +58,7 @@ module.exports = {
                     success: false,
                     message:error.message
                   })
-
+                }},
 
 
     login: async(req, res) => {
@@ -90,9 +90,7 @@ module.exports = {
                     }
 
 
-
-
-                    
+                   
             }
                 catch(error){
                     return res.status(500).json({
@@ -106,7 +104,7 @@ module.exports = {
 
 
 
-        } catch (error) {
+        } ,catch (error) {
             return res.status(500).json({
                 status: 500,
                 message: error.message,
@@ -117,6 +115,6 @@ module.exports = {
 }
         
     
-    
+
     
 
