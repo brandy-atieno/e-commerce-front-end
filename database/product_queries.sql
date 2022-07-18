@@ -1,8 +1,11 @@
 create or alter PROCEDURE product_queries (
                                           @product_name    VARCHAR(255),
                                           @price     decimal(10,2),
-                                          @product_image VARCHAR(MAX) NOT NULL,
-                                          @description        VARCHAR(255),                    
+
+                                          @description        VARCHAR(255),
+                                          @category VARCHAR(255),
+                                          @product_image  VARCHAR(MAX),                  
+
                                           @StatementType  NVARCHAR (20) = '')
 AS
   BEGIN
@@ -12,12 +15,16 @@ AS
                         (
 						product_name,
                          price,
-                         description
+                         description,
+                         category,
+                         product_image
                          )
             VALUES     ( 
 						@product_name,
                          @price,
-                         @description)
+                         @description,
+                         @category,
+                         @product_image)
         END
 
       IF @StatementType = 'Select'
@@ -31,8 +38,11 @@ AS
             UPDATE products
             SET    product_name=@product_name,
 					price = @price,
-          product_image =@product_image,
-                   description = @description
+
+                   description = @description,
+                   category = @category,
+                  product_image= @product_image
+
                   
 
             WHERE  product_name = @product_name

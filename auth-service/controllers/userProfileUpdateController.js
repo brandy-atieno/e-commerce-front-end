@@ -5,6 +5,7 @@ const poolPromise = require('../config/poolPromise')
 
 module.exports = {
     updateUserProfile: async(req, res) => {
+
         let { userID,user_name, email, password,} = req.body
         try {
 
@@ -18,6 +19,7 @@ module.exports = {
                 
                 
                 .execute('dbo.UserUpdate')
+
 
             .then(results => {
                 

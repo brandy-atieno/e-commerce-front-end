@@ -3,37 +3,32 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
+//const { router } = require('./routes/order')
 
-const  userRouter  = require('../auth-service/routes/authentication')
+const { productRouter } = require('./routes/product')
 
- const updateRouter = require('../auth-service/routes/userProfileUpdate')
-
-
+const { orderRouter } = require('./routes/order')
 
 const bodyParser = require('body-parser');
+
 const { request } = require('express');
+const { createOrder } = require('./controllers/orderController');
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
-app.use('/', userRouter)
+//app.use('/', router)
 
-app.use('/',updateRouter)
+app.use('/product', productRouter)
 
+app.use('/order', orderRouter)
 
-
-
-app.use((req, res, next) => {
-    const error = new Error("Error");
-    error.status = 404
-    next(error)
-})
 
 app.use((err, req, res, next) => {
-    return res.json({
+    res.json({
         status: err.status,
         success: false,
         message: err.message

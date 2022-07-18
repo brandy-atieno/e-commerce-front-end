@@ -1,12 +1,13 @@
 const { user } = require('../config/config');
 const mssql = require('mssql')
-const bcrypt=require('bcryptjs')
-const jwt=require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const poolPromise = require('../config/poolPromise')
 
 module.exports = {
-     register: async(req, res) => {
+    register: async(req, res) => {
         let { user_name, first_name, last_name, email, password, isAdmin } = req.body
+
 
        try{
         let pool = await poolPromise()
@@ -58,17 +59,16 @@ module.exports = {
                     message:error.message
                   })
 
-            }
-        },
 
-    
-     login:async(req, res) => {
+
+    login: async(req, res) => {
         const { email, password } = req.body
-        try{
-        let pool = await poolPromise()
-                 const selectQuery= await pool.query(`select * FROM users WHERE email='${email}'`)
-           if(selectQuery.recordset.length>0){
+        try {
+            let pool = await poolPromise()
+            const selectQuery = await pool.query(`select * FROM users WHERE email='${email}'`)
+            if (selectQuery.recordset.length > 0) {
                 let user = selectQuery.recordset[0]
+
                 let pass =  await bcrypt.compare(password,user.password)
                 
                    if ( pass ) {
@@ -99,11 +99,24 @@ module.exports = {
                         status: 500,
                         message: error.message,
                       });
+
             }
+
+
+
+
+
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: error.message,
+            });
         }
+
           
 }
         
     
     
     
+
