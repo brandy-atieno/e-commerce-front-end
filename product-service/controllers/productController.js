@@ -3,7 +3,7 @@ const { product } = require('../config/config')
 
 module.exports = {
     createProduct: async(req, res) => {
-        let { product_name, price, description } = req.body
+        let { product_name, price, description, category, product_image } = req.body
         try {
             let pool = await poolPromise()
             pool.request()
@@ -11,7 +11,10 @@ module.exports = {
             .input('product_name', product_name)
                 .input('price', price)
                 .input('description', description)
-                .input('StatementType', 'Insert')
+                .input('category', category)
+                .input('product_image', product_image)
+
+            .input('StatementType', 'Insert')
                 .execute('dbo.product_queries')
 
             .then(results => {
@@ -27,7 +30,7 @@ module.exports = {
     },
 
     updateProduct: async(req, res) => {
-        let { product_name, price, description } = req.body
+        let { product_name, price, description, category, product_image } = req.body
         try {
             let pool = await poolPromise()
             pool.request()
@@ -35,8 +38,11 @@ module.exports = {
             .input('product_name', product_name)
                 .input('price', price)
                 .input('description', description)
+                .input('category', category)
+                .input('product_image', product_image)
                 .input('StatementType', 'Update')
-                .execute('dbo.product_queries')
+
+            .execute('dbo.product_queries')
 
             .then(results => {
                 if (results.rowsAffected) {

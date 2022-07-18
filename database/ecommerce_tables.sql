@@ -11,12 +11,12 @@ isAdmin BIT NOT NULL DEFAULT 0
 )
 CREATE TABLE products(
 
-product_id int PRIMARY KEY,
+product_id int IDENTITY(1,1) PRIMARY KEY,
 product_name varchar (255),
 price decimal(10,2),
-description varchar(255)
-
-
+description varchar(255),
+category varchar(255),
+product_image varchar(MAX)
 )
 create table orders(
 order_id int identity(1,1) Primary Key,
