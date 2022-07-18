@@ -33,19 +33,64 @@ AS
             FROM   users
         END
 
-      IF @StatementType = 'Update'
-        BEGIN
-            UPDATE users
-            SET    user_name=@user_name,
-					         email=@email,
-				   password=@password,				   
-				   isAdmin=@isAdmin
+      
+    
+    
+    UPDATE STOREDPROCEDURE
 
-            WHERE  user_name = @user_name
-        END
-      ELSE IF @StatementType = 'Delete'
-        BEGIN
-            DELETE FROM users
-            WHERE  user_name = @user_name
-        END
-  END
+    CREATE  OR ALTER PROCEDURE USERUpdate(
+@userID int ,  
+@user_name VARCHAR(255),
+    @email        VARCHAR(255),
+    @password          VARCHAR(255),
+	  
+	  )
+
+AS
+BEGIN
+
+    BEGIN
+        UPDATE users SET 
+		   user_name = @user_name,
+	        email=@email,
+			password=@password,
+			      
+	       WHERE user_id = @userID
+	
+    END
+
+    END
+
+
+    DELETE STORED PROCEDURE
+
+    CREATE  OR ALTER PROCEDURE USERDelete(@user_id int)
+AS
+BEGIN
+  DELETE  FROM users  
+		  	    
+	       WHERE user_id = @user_id
+	
+    END
+
+
+    EMAIL VERIFICATION
+    CREATE OR ALTER PROCEDURE CHECK_EMAIL_EXISTS
+(@email varchar(255)
+)
+AS
+BEGIN
+SELECT * FROM users
+WHERE email=@email
+END
+
+
+USERNAME VERIFICATION
+CREATE OR ALTER PROCEDURE CHECK_USERNAME_EXISTS
+(@user_name varchar(255)
+)
+AS
+BEGIN
+SELECT * FROM users
+WHERE user_name=@user_name
+END

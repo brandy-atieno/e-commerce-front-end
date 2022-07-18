@@ -13,6 +13,7 @@ CREATE TABLE products(
 
 product_id int IDENTITY(1,1) PRIMARY KEY,
 product_name varchar (255),
+product_image VARCHAR(MAX) NOT NULL,
 price decimal(10,2),
 description varchar(255),
 category varchar(255),
